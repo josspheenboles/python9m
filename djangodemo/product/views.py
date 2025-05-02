@@ -37,4 +37,7 @@ def productupdate(request,id):
     return render(request, template_name='product/update.html', context=context)
 
 def productdel(request,id):
-    return render(request, template_name='product/list.html', context={})
+    prod=Product.getbyid(id)
+    if prod:
+        Product.objects.filter(pk=id).delete()
+    return redirect('plist')
