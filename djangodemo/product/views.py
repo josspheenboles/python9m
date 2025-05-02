@@ -25,8 +25,15 @@ def productadd(request):
     return render(request, template_name='product/add.html', context=context)
 
 def productupdate(request,id):
-
     context={'form':ProductForm(instance=Product.getbyid(id))}
+    if request.method=='POST':
+        form=ProductForm(data=request.POST,instance=Product.getbyid(id))
+        if(form.is_bound and form.is_valid()):
+            form.save(commit=True)
+            return redirect('plist')
+        else:
+            context['msg']=form.errors
+            return render(request, template_name='product/update.html', context=context)
     return render(request, template_name='product/update.html', context=context)
 
 def productdel(request,id):
