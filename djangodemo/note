@@ -13,5 +13,11 @@ cd djangodemo
 python manage.py startapp product
 python manage.py startapp catagory
 python manage.py startapp account
---
+--for images
+pip install Pillow
+--db migrations
+python manage.py makemigrations
+python manage.py migrate
+
+
 
