@@ -14,3 +14,6 @@ class Product(models.Model):
     @classmethod
     def getbyid(cls,id):
         return cls.objects.get(pk=id)
+
+    def __str__(self):
+        return self.name
