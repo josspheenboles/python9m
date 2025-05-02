@@ -6,3 +6,12 @@ def home(request):
 
 def productlist(request):
     return render(request, template_name='product/list.html', context={})
+
+def productadd(request):
+    return render(request, template_name='product/add.html', context={})
+
+def productupdate(request,id):
+    return render(request, template_name='product/update.html', context={})
+
+def productdel(request,id):
+    return render(request, template_name='product/list.html', context={})
