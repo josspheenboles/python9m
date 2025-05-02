@@ -5,7 +5,6 @@ pip install django
 --create project
 django-admin startproject djangodemo
 --mysql driver
-
         # If you get mysqlclient installation errors:
         sudo apt install python3-dev default-libmysqlclient-dev build-essential -y
         pip install mysql-connector
