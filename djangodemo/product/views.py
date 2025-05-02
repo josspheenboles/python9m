@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from catagory.models import *
 # Create your views here.
@@ -18,6 +18,7 @@ def productadd(request):
             isactive=(request.POST['isactive']=='on'),
             catagoryid=Category.getbyid(request.POST['catagoryid']),
         )
+        return redirect('plist')
     return render(request, template_name='product/add.html', context=context)
 
 def productupdate(request,id):

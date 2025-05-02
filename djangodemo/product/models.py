@@ -8,3 +8,6 @@ class Product(models.Model):
     image=models.ImageField(upload_to='product/images/',null=True,blank=True)
     isactive=models.BooleanField(default=True)
     catagoryid=models.ForeignKey(Category,on_delete=models.CASCADE)
+    @classmethod
+    def getall(cls):
+        return cls.objects.all()
