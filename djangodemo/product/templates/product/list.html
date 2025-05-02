@@ -23,13 +23,13 @@
                 <td>{{prod.price}}</td>
                 <td>{{prod.catagoryid.name}}</td>
                 <td>
-                    <img width="10%" height="10%" src="/media/{{prod.image}}"/>
+                    <img width="20%" height="20%" src="/media/{{prod.image}}"/>
                     </td>
                 <td>
                     {{prod.isactive|yesno:"Active, inactive"  }}</td>
                 <td>
-                    <a href="">Update</a>
-                    <a href="">Delete</a>
+                    <a href="{%url 'pupdate' prod.id%}">Update</a>
+                    <a href="{%url 'pdel' prod.id%}">Delete</a>
                     <a href="">Details</a>
                 </td>
             </tr>
