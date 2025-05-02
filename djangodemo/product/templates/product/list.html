@@ -25,7 +25,8 @@
                 <td>
                     <img width="10%" height="10%" src="/media/{{prod.image}}"/>
                     </td>
-                <td>{{prod.active}}</td>
+                <td>
+                    {{prod.isactive|yesno:"Active, inactive"  }}</td>
                 <td>
                     <a href="">Update</a>
                     <a href="">Delete</a>
