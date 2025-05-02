@@ -11,3 +11,6 @@ class Product(models.Model):
     @classmethod
     def getall(cls):
         return cls.objects.all()
+    @classmethod
+    def getbyid(cls,id):
+        return cls.objects.get(pk=id)
