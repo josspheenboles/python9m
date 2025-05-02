@@ -1,3 +1,5 @@
+import sys
+
 from django.shortcuts import render,redirect
 from .models import *
 from catagory.models import *
@@ -6,7 +8,6 @@ def home(request):
     return render(request,template_name='parent.html',context={})
 
 def productlist(request):
-
     return render(request, template_name='product/list.html', context={'products':Product.getall()})
 
 def productadd(request):
