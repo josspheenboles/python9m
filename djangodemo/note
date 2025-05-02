@@ -8,4 +8,9 @@ django-admin startproject djangodemo
         # If you get mysqlclient installation errors:
         sudo apt install python3-dev default-libmysqlclient-dev build-essential -y
         pip install mysql-connector
+--create app
+cd djangodemo
+python manage.py startapp product
+python manage.py startapp catagory
+python manage.py startapp account
 
