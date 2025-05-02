@@ -6,7 +6,8 @@ def home(request):
     return render(request,template_name='parent.html',context={})
 
 def productlist(request):
-    return render(request, template_name='product/list.html', context={})
+
+    return render(request, template_name='product/list.html', context={'products':Product.getall()})
 
 def productadd(request):
     context={'catagories':Category.getall()}
