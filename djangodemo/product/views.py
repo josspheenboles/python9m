@@ -10,8 +10,14 @@ def productlist(request):
 
 def productadd(request):
     context={'catagories':Category.getall()}
-    # if(request.method=='POST'):
-
+    if(request.method=='POST'):
+        Product.objects.create(
+            name=request.POST['name'],
+            price=request.POST['price'],
+            image=request.FILES['image'],
+            isactive=(request.POST['isactive']=='on'),
+            catagoryid=Category.getbyid(request.POST['catagoryid']),
+        )
     return render(request, template_name='product/add.html', context=context)
 
 def productupdate(request,id):

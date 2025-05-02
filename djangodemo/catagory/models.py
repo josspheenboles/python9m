@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from django.shortcuts import get_object_or_404
 # Create your models here.
 class Category(models.Model):
     """Hierarchical category system with advanced features"""
@@ -11,5 +12,8 @@ class Category(models.Model):
     image = models.ImageField(upload_to='categories/images/', null=True, blank=True)
 
     @classmethod
-    def getall(self):
-        return self.objects.all()
+    def getall(cls):
+        return cls.objects.all()
+    @classmethod
+    def getbyid(cls,id):
+        return cls.objects.get(pk=id)
