@@ -1,7 +1,11 @@
 {%load static%}
 <html>
     <head>
-        <title>Parent page</title>
+        <title>
+            {%block title%}
+                Parent pag
+            {%endblock%}
+        </title>
         <link rel="stylesheet" href="{%static 'css/style.css'%}" >
     </head>
     <body>
@@ -18,7 +22,11 @@
             </tr>
             <tr>
                 <td colspan="7">
-                    <h1>content</h1>
+                    <h1>
+                        {%block content%}
+                            content
+                        {%endblock%}
+                    </h1>
                 </td>
             </tr>
             <tr>
@@ -29,7 +37,11 @@
 
 
         </table>
-
+        <script>
+            {%block js%}
+                alert('hi ');
+            {%endblock%}
+        </script>
     </body>
 
 </html>
