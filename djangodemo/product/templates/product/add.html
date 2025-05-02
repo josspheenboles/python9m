@@ -18,7 +18,9 @@
         </br>
         <label>catagory:</label>
         <select name="catagoryid">
-            <option value=""></option>
+            {%for cat in catagories%}
+                <option value="{{cat.id}}">{{cat.name}}</option>
+            {%endfor%}
         </select>
         </br>
         <label>isactive:</label>

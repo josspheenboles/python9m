@@ -9,3 +9,7 @@ class Category(models.Model):
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='categories/images/', null=True, blank=True)
+
+    @classmethod
+    def getall(self):
+        return self.objects.all()
