@@ -8,4 +8,4 @@ class Category(models.Model):
     slug = models.SlugField(unique=True, max_length=150)
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='categories/', null=True, blank=True)
+    image = models.ImageField(upload_to='categories/images/', null=True, blank=True)
