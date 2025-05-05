@@ -56,4 +56,4 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.select_related('catagoryid').all()
     serializer_class = Product_serializer
     permission_classes = [rest_framework.permissions.AllowAny]
-    lookup_field = id
+    lookup_field = 'id'

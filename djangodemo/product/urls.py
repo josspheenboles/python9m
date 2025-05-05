@@ -1,7 +1,13 @@
 from django.urls import path
 from .api.views import *
-
+from rest_framework.routers import DefaultRouter
 from .views import *
+
+router=DefaultRouter()
+router.register(r'Prod/',ProductViewSet)
+
+
+
 urlpatterns=[
 
     path('',productlist,name='plist'),
@@ -14,4 +20,4 @@ urlpatterns=[
     # path('API/<int:id>',ProductView.as_view()),
     path('API/<int:pk>',ProductRetrieveUpdateAPIView.as_view()),
 
-]
+]+router.urls
