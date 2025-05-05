@@ -34,3 +34,4 @@ REST_FRAMEWORK = {
         @permission_classes([IsAuthenticated])
     --Combining Permissions
         permission_classes = [IsAuthenticated & DjangoModelPermissions]
+--------------Serializer----------------
