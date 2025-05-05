@@ -114,4 +114,6 @@ Format Suffixes:	Yes (.json, .api)
 -----------SimpleRouter-----
 Root View:	no
 Format Suffixes:no
+-----------simplejwt--------
+pip install djangorestframework-simplejwt
 
