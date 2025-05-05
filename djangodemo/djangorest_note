@@ -107,3 +107,11 @@ ListCreateAPIView	List and create	GET, POST
 RetrieveUpdateAPIView	Detail and update	GET, PUT, PATCH
 RetrieveDestroyAPIView	Detail and delete	GET, DELETE
 RetrieveUpdateDestroyAPIView	Full CRUD on single item	GET, PUT, PATCH, DELETE
+
+-------------DefaultRouter------------
+Root View:	Yes (API root endpoint)
+Format Suffixes:	Yes (.json, .api)
+-----------SimpleRouter-----
+Root View:	no
+Format Suffixes:no
+
