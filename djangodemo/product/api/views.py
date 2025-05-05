@@ -4,7 +4,7 @@ from .serializer import *
 from ..models import *
 from rest_framework.response import  Response
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,permission_classes,authentication_classes
 from rest_framework.views import APIView
 from rest_framework import viewsets
 from rest_framework.generics import RetrieveUpdateAPIView
@@ -12,12 +12,16 @@ from rest_framework.generics import RetrieveUpdateAPIView
 
 from django.shortcuts import get_object_or_404
 @api_view(['GET'])
+@authentication_classes(['BasicAuthentication'])
+@permission_classes(['IsAuthenticated'])
+
 def GetallProduct(request):
     products=Product.getall()
     Serialized_Products=Product_serializer(products,many=True)
     return Response(data=Serialized_Products.data,status=status.HTTP_200_OK)
 
 class ProductView(APIView):
+
     def get(self,request,id):
         productobj=Product.getbyid(id)
         if(productobj):
@@ -48,8 +52,6 @@ class ProductRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         serializer.save(
             modified_by=self.request.user
         )
-
-
 
 
 class ProductViewSet(viewsets.ModelViewSet):
