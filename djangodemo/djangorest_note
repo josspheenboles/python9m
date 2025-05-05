@@ -116,4 +116,22 @@ Root View:	no
 Format Suffixes:no
 -----------simplejwt--------
 pip install djangorestframework-simplejwt
+----curl----
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"username": "your_username", "password": "your_password"}' \
+  http://localhost:8000/api/token/
+
+  curl \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
+  http://localhost:8000/api/protected/
+  --Refreshing Tokens
+  curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."}' \
+  http://localhost:8000/api/token/refresh/
+
+
 
