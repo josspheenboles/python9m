@@ -80,3 +80,20 @@ REST_FRAMEWORK = {
         --Nested Serializers
             class BookSerializer(serializers.ModelSerializer):
             author = AuthorSerializer()  # Nested serializer
+----------APIView---------------------
+    class ProductDetailAPIView(APIView):
+        def get(self, request, pk, format=None):
+            # Handle GET request
+            pass
+
+        def put(self, request, pk, format=None):
+            # Handle PUT request
+            pass
+
+        def patch(self, request, pk, format=None):
+            # Handle PATCH request
+            pass
+
+        def delete(self, request, pk, format=None):
+            # Handle DELETE request
+            pass
