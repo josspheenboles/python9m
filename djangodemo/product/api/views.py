@@ -13,16 +13,15 @@ from rest_framework.generics import RetrieveUpdateAPIView
 
 from django.shortcuts import get_object_or_404
 @api_view(['GET'])
-@authentication_classes(['BasicAuthentication'])
+# @authentication_classes(['BasicAuthentication'])
 @permission_classes(['IsAuthenticated'])
-
 def GetallProduct(request):
     products=Product.getall()
     Serialized_Products=Product_serializer(products,many=True)
     return Response(data=Serialized_Products.data,status=status.HTTP_200_OK)
 
 class ProductView(APIView):
-    authentication_classes = [rest_framework.authentication.BasicAuthentication]
+    # authentication_classes = [rest_framework.authentication.BasicAuthentication]
     permission_classes = [rest_framework.permissions.IsAuthenticated]
     def get(self,request,id):
         productobj=Product.getbyid(id)
