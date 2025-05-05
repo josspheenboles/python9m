@@ -6,7 +6,10 @@ from rest_framework.response import  Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.generics import RetrieveUpdateAPIView
+
+
 from django.shortcuts import get_object_or_404
 @api_view(['GET'])
 def GetallProduct(request):
@@ -47,3 +50,10 @@ class ProductRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         )
 
 
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.select_related('catagoryid').all()
+    serializer_class = Product_serializer
+    permission_classes = [rest_framework.permissions.AllowAny]
+    lookup_field = id
