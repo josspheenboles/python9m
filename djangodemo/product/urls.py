@@ -1,8 +1,9 @@
-from django.urls import path
+from django.urls import path,include
 
 
 from .views import *
 urlpatterns=[
+    
     path('',productlist,name='plist'),
     path('Add/',productadd,name='padd'),
     path('Update/<int:id>',productupdate,name='pupdate'),
