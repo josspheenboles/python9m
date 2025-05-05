@@ -1,0 +1,11 @@
+---install django rest framework
+pip install djangorestframework
+--configure
+add to INSTALLED_APPS
+['rest_framework']
+--condigure default permission
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
