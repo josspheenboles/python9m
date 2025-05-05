@@ -11,6 +11,7 @@ urlpatterns=[
 
 
     path('API/',GetallProduct),
-    path('API/<int:id>',ProductView.as_view()),
+    # path('API/<int:id>',ProductView.as_view()),
+    path('API/<int:pk>',ProductRetrieveUpdateAPIView.as_view()),
 
 ]
