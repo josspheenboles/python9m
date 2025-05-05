@@ -97,3 +97,13 @@ REST_FRAMEWORK = {
         def delete(self, request, pk, format=None):
             # Handle DELETE request
             pass
+----All Generic View Classes----------
+CreateAPIView	Create-only endpoint	POST
+ListAPIView	Read-only list endpoint	GET
+RetrieveAPIView	Read-only detail endpoint	GET
+DestroyAPIView	Delete-only endpoint	DELETE
+UpdateAPIView	Update-only endpoint	PUT, PATCH
+ListCreateAPIView	List and create	GET, POST
+RetrieveUpdateAPIView	Detail and update	GET, PUT, PATCH
+RetrieveDestroyAPIView	Detail and delete	GET, DELETE
+RetrieveUpdateDestroyAPIView	Full CRUD on single item	GET, PUT, PATCH, DELETE
