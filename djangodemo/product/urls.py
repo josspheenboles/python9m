@@ -11,5 +11,6 @@ urlpatterns=[
 
 
     path('API/',GetallProduct),
+    path('API/<int:id>',ProductView.as_view()),
 
 ]
