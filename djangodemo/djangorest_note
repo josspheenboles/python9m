@@ -35,3 +35,48 @@ REST_FRAMEWORK = {
     --Combining Permissions
         permission_classes = [IsAuthenticated & DjangoModelPermissions]
 --------------Serializer----------------
+    handle the conversion between complex data types (like Django models) and Python native datatypes that can be easily rendered into JSON, XML, or other content types. Here's a comprehensive guide to DRF serializers:
+    ---Serializer Types
+        --Serializer (Base class)
+            from rest_framework import serializers
+            class BookSerializer(serializers.Serializer):
+                title = serializers.CharField(max_length=200)
+                author = serializers.CharField(max_length=100)
+                published_date = serializers.DateField()
+                isbn = serializers.CharField(max_length=13)
+        --ModelSerializer (Most common)
+        from rest_framework import serializers
+        from .models import Book
+
+        class BookSerializer(serializers.ModelSerializer):
+            class Meta:
+                model = Book
+                fields = '__all__'  # Or specify fields: ['id', 'title', 'author']
+        --HyperlinkedModelSerializer
+            class BookSerializer(serializers.HyperlinkedModelSerializer):
+            class Meta:
+                model = Book
+                fields = ['url', 'title', 'author']  # Includes hyperlinks
+                extra_kwargs = {
+                    'url': {'view_name': 'book-detail', 'lookup_field': 'pk'}
+                }
+    --Common Field Types
+        CharField	Text field
+        IntegerField	Integer field
+        BooleanField	True/False
+        DateTimeField	Date/time
+        EmailField	Email validation
+        URLField	URL validation
+        SlugField	Slug validation
+        DecimalField	Decimal numbers
+        FileField/ImageField	File uploads
+        ListField	List of items
+        DictField	Dictionary field
+    --Serializer Methods
+        --Custom Validation
+            def validate_title(self, value):
+        --Custom Fields
+            def get_days_since_published(self, obj):
+        --Nested Serializers
+            class BookSerializer(serializers.ModelSerializer):
+            author = AuthorSerializer()  # Nested serializer
