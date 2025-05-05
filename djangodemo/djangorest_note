@@ -9,3 +9,28 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+------------Built-in Permission Classes-------
+    --AllowAny:Public APIs where anyone can read/write
+    --IsAuthenticated:APIs that require login
+    --IsAdminUser:Admin-only endpoints
+    --IsAuthenticatedOrReadOnly:   Public read access, authenticated write access
+    --DjangoModelPermissionsOrAnonReadOnly:Public read, authenticated write with specific permissions
+    --DjangoObjectPermissions:Fine-grained per-object access control
+    --Custom Permissions:create custom permission classes by subclassing BasePermission:
+        def has_object_permission(self, request, view, obj):
+-------------Setting Permissions----------------
+    --Global Settings (in settings.py)
+        REST_FRAMEWORK = {
+            'DEFAULT_PERMISSION_CLASSES': [
+                'rest_framework.permissions.IsAuthenticated',
+            ]
+        }
+     --View-Level Settings
+        permission_classes = [IsAuthenticated]
+     --Function-Based Views
+        from rest_framework.decorators import api_view, permission_classes
+        from rest_framework.permissions import IsAuthenticated
+        @api_view(['GET'])
+        @permission_classes([IsAuthenticated])
+    --Combining Permissions
+        permission_classes = [IsAuthenticated & DjangoModelPermissions]
